@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import GlobalStyles from "../config/style/GlobalStyles";
 import color from "../config/colors/color";
-import { Image, SafeAreaView, Text, TextInput, View } from "react-native";
+import { Image, SafeAreaView, ScrollView, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import {
@@ -10,6 +10,7 @@ import {
   SearchIcon,
   AdjustmentsIcon,
 } from "react-native-heroicons/outline";
+import Category from "../components/Category/Category";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -53,6 +54,11 @@ const HomeScreen = () => {
         </View>
         <AdjustmentsIcon size={25} color={color.THEMECOLOR} />
       </View>
+
+      {/* ----------BODY------------ */}
+        <ScrollView>
+            <Category />
+        </ScrollView>
     </SafeAreaView>
   );
 };
