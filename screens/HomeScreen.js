@@ -1,8 +1,9 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import GlobalStyles from "../config/style/GlobalStyles";
 import color from "../config/colors/color";
-import { Image, SafeAreaView, Text, View } from "react-native";
+import { Image, SafeAreaView, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 import {
   UserIcon,
   ChevronDownIcon,
@@ -20,7 +21,9 @@ const HomeScreen = () => {
   });
 
   return (
-    <SafeAreaView style={GlobalStyles.AdroidSafeArea}>
+    <SafeAreaView style={GlobalStyles.AdroidSafeArea} className="bg-white">
+      <StatusBar style="drak" backgroundColor={color.WHITE} />
+      {/* ----------HEADER------------ */}
       <View className="flex-row justify-between items-center mx-4 pb-3 pt-3">
         <View className="flex-row  items-center space-x-2 ">
           <Image
@@ -39,8 +42,16 @@ const HomeScreen = () => {
             </View>
           </View>
         </View>
-
         <UserIcon size={34} color={color.THEMECOLOR} />
+      </View>
+
+      {/* ----------SEARCH------------ */}
+      <View className="flex-row mx-4 pt-3 pb-3 space-x-2 items-center">
+        <View className="flex-row space-x-2 items-center bg-gray-200 p-3 flex-1 rounded">
+          <SearchIcon size={20} color={color.GRAY} />
+          <TextInput placeholder="Restaurants" className="flex-1" />
+        </View>
+        <AdjustmentsIcon size={25} color={color.THEMECOLOR} />
       </View>
     </SafeAreaView>
   );
