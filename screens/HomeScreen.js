@@ -1,7 +1,14 @@
 import React, { useLayoutEffect, useState } from "react";
 import GlobalStyles from "../config/style/GlobalStyles";
 import color from "../config/colors/color";
-import { Image, SafeAreaView, ScrollView, Text, TextInput, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import {
@@ -11,6 +18,7 @@ import {
   AdjustmentsIcon,
 } from "react-native-heroicons/outline";
 import Category from "../components/Category/Category";
+import FeatureRow from "../components/FeatureRow/FeatureRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -35,7 +43,7 @@ const HomeScreen = () => {
           />
           <View>
             <Text className="text-xs font-bold text-gray-300 ">
-              Deliver Now!
+              Deliver Now <Text className='text-green-600'>!</Text>
             </Text>
             <View className="flex-row items-center space-x-1">
               <Text className="font-bold text-lg">Current Location</Text>
@@ -56,9 +64,26 @@ const HomeScreen = () => {
       </View>
 
       {/* ----------BODY------------ */}
-        <ScrollView>
-            <Category />
-        </ScrollView>
+      <ScrollView>
+        <View style={{  paddingBottom: 150 }}>
+          {/* ----------Category------------ */}
+          <Category />
+
+          {/* ----------FeatureRow------------ */}
+          <FeatureRow
+            title="Offer near you!"
+            description={"Why not your local restaurant tonight"}
+          />
+          <FeatureRow
+            title="Featured"
+            description={"Paid placement from our partners"}
+          />
+          <FeatureRow
+            title="Tasty Discounts"
+            description={"Paid placement from our partners"}
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
