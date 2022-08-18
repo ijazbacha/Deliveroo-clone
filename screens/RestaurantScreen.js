@@ -9,6 +9,7 @@ import {
 import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
 import color from "../config/colors/color";
 import { useNavigation } from "@react-navigation/native";
+import DishRow from "../components/DishRow/DishRow";
 
 const RestaurantScreen = ({ route }) => {
   const { imageUrl, title, rating } = route.params;
@@ -57,6 +58,12 @@ const RestaurantScreen = ({ route }) => {
           <ChevronRightIcon color={color.THEMECOLOR} />
         </TouchableOpacity>
       </View>
+
+      {/* ----------DISHES----------- */}
+      <Text className='font-bold p-4 mt-4 text-xl'>Menu</Text>
+      <DishRow id={1} imageUrl={imageUrl} title={title} />
+      <DishRow id={2} imageUrl={imageUrl} title={title} />
+      <DishRow id={3} imageUrl={imageUrl} title={title} />
     </ScrollView>
   );
 };
