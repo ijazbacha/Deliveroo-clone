@@ -10,11 +10,18 @@ import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
 import color from "../config/colors/color";
 import { useNavigation } from "@react-navigation/native";
 import DishRow from "../components/DishRow/DishRow";
+import BasketView from "../components/BasketView/BasketView";
+import { useSelector } from "react-redux";
 
 const RestaurantScreen = ({ route }) => {
   const { imageUrl, title, rating } = route.params;
   const navigation = useNavigation();
+  const basketItems = useSelector((state) => state.basket.item);
+  console.log("basketItems", basketItems.length);
   return (
+    <>
+    {basketItems?.length == 0 ? null : <BasketView />}
+   
     <ScrollView>
       <View className="bg-white">
         <View className="relative">
@@ -60,11 +67,16 @@ const RestaurantScreen = ({ route }) => {
       </View>
 
       {/* ----------DISHES----------- */}
-      <Text className='font-bold p-4 mt-4 text-xl'>Menu</Text>
+      <View className='pb-32'>
+        <Text className='font-bold p-4 mt-4 text-xl'>Menu</Text>
       <DishRow id={1} imageUrl={imageUrl} title={title} />
       <DishRow id={2} imageUrl={imageUrl} title={title} />
       <DishRow id={3} imageUrl={imageUrl} title={title} />
+      </View>
+      
     </ScrollView>
+    </>
+    
   );
 };
 

@@ -14,7 +14,8 @@ const DishRow = ({ id, imageUrl, title }) => {
   const dispatch = useDispatch();
 
   const addBasketHandler = () => {
-    dispatch(addToBasket({ id, imageUrl, title }));
+    let price = 100
+    dispatch(addToBasket({ id, imageUrl, title, price }));
   };
 
   const removeBasketHandler = () => {
