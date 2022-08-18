@@ -10,7 +10,7 @@ import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
 import color from "../config/colors/color";
 import { useNavigation } from "@react-navigation/native";
 import DishRow from "../components/DishRow/DishRow";
-import BasketView from "../components/BasketView/BasketView";
+import BasketButton from "../components/BasketButton/BasketButton";
 import { useSelector } from "react-redux";
 
 const RestaurantScreen = ({ route }) => {
@@ -20,7 +20,7 @@ const RestaurantScreen = ({ route }) => {
   console.log("basketItems", basketItems.length);
   return (
     <>
-    {basketItems?.length == 0 ? null : <BasketView />}
+    {basketItems?.length == 0 ? null : <BasketButton />}
    
     <ScrollView>
       <View className="bg-white">

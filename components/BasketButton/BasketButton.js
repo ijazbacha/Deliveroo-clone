@@ -2,10 +2,9 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { useSelector } from "react-redux";
 import Currency from "react-currency-formatter";
-import color from "../../config/colors/color";
 import { useNavigation } from "@react-navigation/native";
 
-const BasketView = () => {
+const BasketButton = () => {
   const navigation = useNavigation();
   const basketItems = useSelector((state) => state.basket.item);
   const totalPrice = useSelector((state) =>
@@ -14,8 +13,9 @@ const BasketView = () => {
   return (
     <View className="absolute bottom-10 z-10 w-full ">
       <TouchableOpacity
+      onPress={() => navigation.navigate('Basket')}
         activeOpacity={0.5}
-        className='bg-["#b38823"] mx-3 rounded flex-row p-4 items-center space-x-1 justify-between'
+        className='bg-[#b38823] mx-3 rounded flex-row p-4 items-center space-x-1 justify-between'
       >
         <Text className="text-white font-bold">{basketItems.length}</Text>
         <Text className="text-white font-bold">View Basket</Text>
@@ -27,4 +27,4 @@ const BasketView = () => {
   );
 };
 
-export default BasketView;
+export default BasketButton;
