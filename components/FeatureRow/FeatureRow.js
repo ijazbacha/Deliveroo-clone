@@ -35,9 +35,9 @@ const FeatureRow = ({ title, description }) => {
             lat={0}
           />
           <RestaurantCard
-            id="1"
+            id="2"
             imageUrl={url}
-            title="Yo! Sushi"
+            title="Chicken Wings"
             rating={4.5}
             genre="Japanese"
             address="123 Main st"
@@ -47,9 +47,9 @@ const FeatureRow = ({ title, description }) => {
             lat={0}
           />
           <RestaurantCard
-            id="1"
+            id="3"
             imageUrl={url}
-            title="Yo! Sushi"
+            title="Family Platter"
             rating={4.5}
             genre="Japanese"
             address="123 Main st"
