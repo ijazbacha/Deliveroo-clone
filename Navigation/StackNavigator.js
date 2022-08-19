@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import RestaurantScreen from "../screens/RestaurantScreen";
 import BasketScreen from "../screens/BasketScreen";
+import PreparingFoodScreen from "../screens/PreparingFoodScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,11 @@ function StackNavigator() {
         name="Basket"
         component={BasketScreen}
         options={{ headerShown: false, presentation: "modal",animation: 'slide_from_bottom' }}
+      />
+      <Stack.Screen
+        name="PreparingFood"
+        component={PreparingFoodScreen}
+        options={{ headerShown: false, presentation: "fullScreenModal",animation: 'slide_from_bottom' }}
       />
     </Stack.Navigator>
   );
