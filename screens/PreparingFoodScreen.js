@@ -1,10 +1,17 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import * as Animatable from "react-native-animatable";
 import * as Progress from "react-native-progress";
 import color from "../config/colors/color";
+import { useNavigation } from "@react-navigation/native";
 
 const PreparingFoodScreen = () => {
+  const navigation = useNavigation();
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate("Delivery");
+    }, 3000);
+  }, []);
   return (
     <View className="bg-[#b38823] flex-1 justify-center items-center space-y-8">
       <Animatable.Image
