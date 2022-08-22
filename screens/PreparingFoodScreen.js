@@ -11,6 +11,10 @@ const PreparingFoodScreen = () => {
       iterationCount={1}
       className='h-96 w-96'
        />
+       <Animatable.Text animation="slideInUp" iterationCount={1}
+       className='text-lg text-white font-bold text-center'>
+        Waiting for Restaurant to accept your order!
+       </Animatable.Text>
     </View>
   )
 }
