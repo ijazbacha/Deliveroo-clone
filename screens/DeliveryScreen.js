@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GlobalStyles from "../config/style/GlobalStyles";
 import { ShoppingBagIcon, XIcon } from "react-native-heroicons/solid";
 import color from "../config/colors/color";
@@ -9,6 +9,30 @@ import MapView from "react-native-maps";
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();
+  const [mixTime, setMixTime] = useState(45);
+  const [minTime, setMinTime] = useState(50);
+  const [timeValue, setTimeValue] = useState(null);
+
+  useEffect(() => {
+    console.log(`initializing interval`);
+    if (mixTime == 0 || minTime == 0) {
+      return;
+    }
+    const interval = setInterval(() => {
+      calculateTime();
+    }, 60000);
+
+    return () => {
+      console.log(`clearing interval`);
+      clearInterval(interval);
+    };
+  }, [mixTime, minTime]);
+
+  const calculateTime = () => {
+    setMixTime((prev) => prev - 1);
+    setMinTime((prev) => prev - 1);
+  };
+
   return (
     <View className="flex-1 bg-[#b38823]">
       <SafeAreaView style={GlobalStyles.AdroidSafeArea} className="z-50">
@@ -23,7 +47,7 @@ const DeliveryScreen = () => {
             <View>
               <Text className="text-gray-300 text-sm">Estimated Arrival</Text>
               <Text className="font-bold text-3xl text-black">
-                45-55 Minutes
+                {mixTime}-{minTime} Minutes
               </Text>
             </View>
 
