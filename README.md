@@ -1,4 +1,4 @@
-# Deliveroo-clone
+# Deliveroo-clone (Expo Project) 
 
 # Installation Command
 npm install
